@@ -1,0 +1,26 @@
+<div class="home">
+    <div class="home_wrapper">
+        <input [formControl]="location" (keyup)="enter($event)" />
+        <div>
+            <button class="button_home" (click)="search()">Search</button>
+        </div>
+    </div>
+    <div class="home_detail" *ngIf="all_data">
+        <div>
+            <div class="home_location">
+                <h4 class="name_location">{{all_data.name}}</h4>
+            </div>
+            <div class="home_temp">
+                <h4>Temperatur from {{all_data.main.temp}} &#8451; to {{all_data.main.temp_max}} &#8451;</h4>
+            </div>
+            <div *ngFor="let weather of all_data.weather">
+                <div class="home_img">
+                    <img src="http://openweathermap.org/img/wn/{{weather.icon}}@2x.png"/>
+                </div>
+                <div class="home_cloud">
+                    <h4>{{weather.description}}</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

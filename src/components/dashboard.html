@@ -1,0 +1,40 @@
+<div class="create">
+    <div class="wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Address</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let x of data; let i = index" [formGroup]="EditForm">
+                    <td *ngIf="checkEdit == i+1">
+                        <input placeholder={{x.name}} formControlName="name" />
+                    </td>
+                    <td *ngIf="checkEdit == i+1">
+                        <input placeholder={{x.age}} formControlName="age" />
+                    </td>
+                    <td *ngIf="checkEdit == i+1">
+                        <input placeholder={{x.address}} formControlName="address" />
+                    </td>
+                    <td *ngIf="checkEdit != i+1">{{x.name}}</td>
+                    <td *ngIf="checkEdit != i+1">{{x.age}}</td>
+                    <td *ngIf="checkEdit != i+1">{{x.address}}</td>
+                    <td *ngIf="checkEdit != i+1">
+                        <button (click)="edit(x, i)">Edit</button>
+                        <button (click)="delete(i)">Delete</button>
+                    </td>
+                    <td *ngIf="checkEdit == i+1">
+                        <button (click)="save(i)">save</button>
+                        <button (click)="cancel(i)">Cancel</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<router-outlet></router-outlet>

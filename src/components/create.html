@@ -1,0 +1,17 @@
+<div class="create">
+    <form [formGroup]="CreateForm">
+        <div class="input">
+            <input class="form-control" formControlName="name" placeholder="Name" required/>
+        </div>
+        <div class="input">
+            <input formControlName="age" placeholder="Age" />
+        </div>
+        <div class="input">
+            <input formControlName="address" placeholder="Address" />
+        </div>
+        <div>
+            <button (click)="onSave()">Save</button>
+        </div>
+    </form>
+</div>
+<router-outlet></router-outlet>
